@@ -29,6 +29,7 @@ set tabstop=4
 set shiftwidth=4
 set textwidth=80
 set updatetime=200
+set cursorline
 
 " Disabling `netrw`
 let g:loaded_netrw = 1
@@ -60,6 +61,10 @@ nnoremap <leader>sv :source $MYVIMRC<CR>
 
 "-- Pathogen Config
 execute pathogen#infect()
+
+"-- vim-airline Config
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
 
 "-- Asynchronous Lint Engine Config
 let b:ale_fixers = {
