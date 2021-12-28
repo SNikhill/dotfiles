@@ -23,11 +23,18 @@
 "   ---- Gutentags
 "   ---- Asynchronous Lint Engine
 "
-set number relativenumber
 syntax on
+set number relativenumber
 set tabstop=4
 set shiftwidth=4
 set textwidth=80
+set updatetime=200
+
+" Disabling `netrw`
+let g:loaded_netrw = 1
+let g:loaded_netrwPlugin = 1
+" Showing `intro` on Vim Startup
+autocmd VimEnter * intro
 
 " signcolumn needs to be visible for gitgutter stuff
 autocmd BufRead,BufNewFile * set signcolumn=yes
@@ -90,6 +97,8 @@ endif
 colorscheme material
 
 "-- NERDTree Config
+"---- Prevent NERDTree from highjacking `netrw` command
+let g:NERDTreeHijackNetrw = 0
 "---- Keybinds
 nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
