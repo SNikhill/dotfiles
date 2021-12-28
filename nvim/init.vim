@@ -94,12 +94,12 @@ endif
 "-- Themeing/Color Stuff
 "---- background=dark is required for some reason
 set background=dark
-let g:airline_theme = 'material'
-let g:material_theme_style = 'darker'
+" let g:airline_theme = 'material'
+" let g:material_theme_style = 'palenight'
 if has('termguicolors')
 	set termguicolors
 endif
-colorscheme material
+colorscheme github_dark
 
 "-- NERDTree Config
 "---- Prevent NERDTree from highjacking `netrw` command
