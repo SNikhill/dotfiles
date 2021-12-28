@@ -10,12 +10,16 @@
 "   ---- vim-airline
 "   ---- Material Theme
 "   ---- deoplete.nvim
+"   -- Code Productivity
+"   --- (Not exactly coding stuff but, the things that make programming more 
+"   productive. Like, Version Control Tools, Commenting Tools)
+"	---- GitGutter
+"   ---- tcomment
 "   -- Code Assistance
 "   --- (Like, linter support, code completion, etc.)
 "   ---- deoplete.nvim
 "   ---- Gutentags
 "   ---- Asynchronous Lint Engine
-"	---- GitGutter
 "
 set number relativenumber
 syntax on
