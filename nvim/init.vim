@@ -11,10 +11,12 @@
 "   ---- Material Theme
 "   ---- deoplete.nvim
 "   -- Code Productivity
-"   --- (Not exactly coding stuff but, the things that make programming more 
+"   --- (Not exactly coding stuff but, the things that make programming more
 "   productive. Like, Version Control Tools, Commenting Tools)
 "	---- GitGutter
 "   ---- tcomment
+"   ---- plenary (required by telescope)
+"   ---- telescope
 "   -- Code Assistance
 "   --- (Like, linter support, code completion, etc.)
 "   ---- deoplete.nvim
@@ -30,6 +32,7 @@ set textwidth=80
 " signcolumn needs to be visible for gitgutter stuff
 autocmd BufRead,BufNewFile * set signcolumn=yes
 autocmd FileType tagbar,nerdtree set signcolumn=no
+" Show linenumbers in the NERDTree explorer
 autocmd FileType nerdtree set number relativenumber
 
 "-- Keybinds
@@ -62,8 +65,15 @@ let b:ale_fixers = {
 "---- Keybinds
 nnoremap <leader>gg :ALEFix<CR>
 
-"-- Deoplete Config
 if has('nvim')
+	"-- Telescope Config
+	"---- Keybinds
+	nnoremap <leader>ff <cmd>Telescope find_files<cr>
+	nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+	nnoremap <leader>fb <cmd>Telescope buffers<cr>
+	nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+	
+	"-- Deoplete Config
 	let g:deoplete#enable_at_startup = 0
 	"---- Enable Deoplete when entering the Insert Mode
 	autocmd InsertEnter * call deoplete#enable()
