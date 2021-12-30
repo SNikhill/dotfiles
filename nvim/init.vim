@@ -68,12 +68,21 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 
 "-- Asynchronous Lint Engine Config
-let b:ale_fixers = {
-			\'*': ['remove_trailing_lines', 'trim_whitespace'],
-			\'html': ['prettier'],
-			\	'javascript': ['eslint', 'prettier'],
-			\'typescript': ['eslint', 'prettier'],
-			\}
+"---- Fixers
+let common_js_fixers = ['prettier', 'eslint']
+
+"----- (I don't like the multiline `\` syntax for dictionary)
+let g:ale_fixers = {}
+let g:ale_fixers['*'] = ['remove_trailing_lines', 'trim_whitespace']
+let g:ale_fixers['javascript'] = common_js_fixers
+let g:ale_fixers['javascript.jsx'] = common_js_fixers
+let g:ale_fixers['typescript'] = common_js_fixers
+let g:ale_fixers['typescriptreact'] = common_js_fixers
+let g:ale_fixers['html'] = ['prettier']
+let g:ale_fixers['css'] = ['prettier']
+let g:ale_fixers['json'] = ['prettier']
+
+let g:ale_fix_on_save = 1
 
 "---- Keybinds
 nnoremap <leader>gg :ALEFix<CR>
@@ -85,7 +94,7 @@ if has('nvim')
 	nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 	nnoremap <leader>fb <cmd>Telescope buffers<cr>
 	nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-	
+
 	"-- Deoplete Config
 	let g:deoplete#enable_at_startup = 0
 	"---- Enable Deoplete when entering the Insert Mode
