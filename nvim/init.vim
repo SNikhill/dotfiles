@@ -54,8 +54,9 @@ nnoremap <Right> <nop>
 nnoremap <Down> <nop>
 nnoremap <Left> <nop>
 
-"---- Opening INIT.vim/VIMRC
-nnoremap <leader>ev :vsplit $MYVIMRC<CR>
+"-- VIMRC
+"---- Opening VIMRC in the first tab
+nnoremap <leader>ev :tabnew $MYVIMRC<CR> :tabmove 0 <CR>
 "---- SOURCING INIT.vim/VIMRC
 nnoremap <leader>sv :source $MYVIMRC<CR>
 
