@@ -28,7 +28,7 @@ set number relativenumber
 set tabstop=4
 set shiftwidth=4
 set textwidth=80
-set updatetime=200
+set updatetime=100
 set cursorline
 
 " Disabling `netrw`
@@ -37,8 +37,6 @@ let g:loaded_netrwPlugin = 1
 " Showing `intro` on Vim Startup
 autocmd VimEnter * intro
 
-" signcolumn needs to be visible for gitgutter stuff
-autocmd BufRead,BufNewFile * set signcolumn=yes
 autocmd FileType tagbar,nerdtree set signcolumn=no
 " Show linenumbers in the NERDTree explorer
 autocmd FileType nerdtree set number relativenumber
@@ -66,6 +64,14 @@ execute pathogen#infect()
 "-- vim-airline Config
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
+
+"-- gitgutter Config
+"---- Keybinds
+"----- (h => hunk)
+nnoremap [h :GitGutterPrevHunk<CR>
+nnoremap ]h :GitGutterNextHunk<CR>
+"---- signcolumn needs to be visible for the symbols
+autocmd BufRead,BufNewFile * set signcolumn=yes
 
 "-- Asynchronous Lint Engine Config
 "---- Fixers
