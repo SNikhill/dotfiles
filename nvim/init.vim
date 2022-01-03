@@ -93,7 +93,8 @@ let g:ale_fixers['typescript'] = common_js_fixers
 let g:ale_fixers['typescriptreact'] = common_js_fixers
 let g:ale_fixers['html'] = ['prettier']
 let g:ale_fixers['css'] = ['prettier']
-let g:ale_fixers['json'] = ['prettier']
+let g:ale_fixers['json'] = common_js_fixers
+let g:ale_fixers['jsonc'] = common_js_fixers
 
 let g:ale_fix_on_save = 1
 
@@ -103,6 +104,7 @@ nnoremap <leader>gg :ALEFix<CR>
 if has('nvim')
 	"-- Telescope Config
 	"---- Keybinds
+	nnoremap <leader><leader> :Telescope find_files<CR>
 	nnoremap <leader>ff <cmd>Telescope find_files<cr>
 	nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 	nnoremap <leader>fb <cmd>Telescope buffers<cr>
