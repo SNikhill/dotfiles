@@ -3,21 +3,20 @@
 " although, I never tested the same and frankly don't even know the difference
 " that NeoVim produces since, I haven't really used Vim that much. I started
 " with NeoVim.
-"
 " - Plugin Manager: Pathogen
 "   -- Basic Plugins:
 "   ---- NERDTree
 "   ---- vim-airline
 "   ---- Material Theme
 "   ---- deoplete.nvim
-"   -- Code Productivity
+"   -- Code Productivity:
 "   --- (Not exactly coding stuff but, the things that make programming more
 "   productive. Like, Version Control Tools, Commenting Tools)
 "	---- GitGutter
 "   ---- tcomment
 "   ---- plenary (required by telescope)
 "   ---- telescope
-"   -- Code Assistance
+"   -- Code Assistance:
 "   --- (Like, linter support, code completion, etc.)
 "   ---- deoplete.nvim
 "   ---- Gutentags
@@ -43,6 +42,14 @@ autocmd FileType nerdtree set number relativenumber
 
 "-- Keybinds
 let mapleader=","
+
+"-- Clipboard
+"--- Refer to :help registers
+"---- Copying to System's Clipboard
+vnoremap yy "+y<CR>
+"---- Pasting from System's Clipboard
+vnoremap pp "+p<CR>
+nnoremap pp "+p<CR>
 
 "---- Disabling Arrow Keys
 inoremap jk <esc>
