@@ -40,7 +40,6 @@ autocmd FileType tagbar,nerdtree set signcolumn=no
 " Show linenumbers in the NERDTree explorer
 autocmd FileType nerdtree set number relativenumber
 
-"-- Keybinds
 let mapleader=","
 
 "-- Clipboard
@@ -99,6 +98,7 @@ let g:ale_fixers['jsonc'] = common_js_fixers
 let g:ale_fix_on_save = 1
 
 "---- Keybinds
+nnoremap <F12> :ALEGoToDefinition<CR>
 nnoremap <leader>gg :ALEFix<CR>
 
 if has('nvim')
