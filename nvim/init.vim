@@ -23,6 +23,7 @@
 "   ---- Asynchronous Lint Engine
 "
 syntax on
+set autoread
 set number relativenumber
 set tabstop=4
 set shiftwidth=4
@@ -37,10 +38,25 @@ let g:loaded_netrwPlugin = 1
 autocmd VimEnter * intro
 
 autocmd FileType tagbar,nerdtree set signcolumn=no
-" Show linenumbers in the NERDTree explorer
-autocmd FileType nerdtree set number relativenumber
 
 let mapleader=","
+
+"-- General
+"---- Keybinds
+noremap <C-z> <nop>
+inoremap jk <esc>
+inoremap <esc> <nop>
+
+"----- disabling arrow keys
+nnoremap <Up> <nop>
+nnoremap <Right> <nop>
+nnoremap <Down> <nop>
+nnoremap <Left> <nop>
+
+"-- Terminal
+"---- Keybinds
+"----- open terminal at the bottom
+nnoremap <C-t> :bel split<CR> :terminal <CR>
 
 "-- Clipboard
 "--- Refer to :help registers
@@ -49,14 +65,6 @@ vnoremap yy "+y<CR>
 "---- Pasting from System's Clipboard
 vnoremap pp "+p<CR>
 nnoremap pp "+p<CR>
-
-"---- Disabling Arrow Keys
-inoremap jk <esc>
-inoremap <esc> <nop>
-nnoremap <Up> <nop>
-nnoremap <Right> <nop>
-nnoremap <Down> <nop>
-nnoremap <Left> <nop>
 
 "-- VIMRC
 "---- Opening VIMRC in the first tab
@@ -79,7 +87,7 @@ nnoremap <leader>hs :GitGutterStageHunk<CR>
 nnoremap <leader>hu :GitGutterUndoHunk<CR>
 nnoremap [h :GitGutterPrevHunk<CR>
 nnoremap ]h :GitGutterNextHunk<CR>
-"---- signcolumn needs to be visible for the symbols
+"----- signcolumn needs to be visible for the symbols
 autocmd BufRead,BufNewFile * set signcolumn=yes
 
 "-- Asynchronous Lint Engine Config
@@ -107,7 +115,7 @@ nnoremap <leader>gg :ALEFix<CR>
 if has('nvim')
 	"-- Telescope Config
 	"---- Keybinds
-	nnoremap <leader><leader> :Telescope find_files<CR>
+	nnoremap <Space><Space> :Telescope find_files<CR>
 	nnoremap <leader>ff <cmd>Telescope find_files<cr>
 	nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 	nnoremap <leader>fb <cmd>Telescope buffers<cr>
@@ -115,6 +123,8 @@ if has('nvim')
 
 	"-- Deoplete Config
 	let g:deoplete#enable_at_startup = 0
+	"---- Disable Deoplete when in TelescopePrompt
+	autocmd FileType TelescopePrompt call deoplete#custom#buffer_option('auto_complete', v:false)
 	"---- Enable Deoplete when entering the Insert Mode
 	autocmd InsertEnter * call deoplete#enable()
 endif
@@ -130,6 +140,9 @@ endif
 colorscheme github_dark
 
 "-- NERDTree Config
+"---- Show linenumbers in the NERDTree explorer
+autocmd FileType nerdtree set number relativenumber
+
 "---- Prevent NERDTree from highjacking `netrw` command
 let g:NERDTreeHijackNetrw = 0
 "---- Keybinds
