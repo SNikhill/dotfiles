@@ -74,6 +74,9 @@ let g:airline#extensions#tabline#formatter = 'unique_tail'
 "-- gitgutter Config
 "---- Keybinds
 "----- (h => hunk)
+nnoremap <leader>hp :GitGutterPreviewHunk<CR>
+nnoremap <leader>hs :GitGutterStageHunk<CR>
+nnoremap <leader>hu :GitGutterUndoHunk<CR>
 nnoremap [h :GitGutterPrevHunk<CR>
 nnoremap ]h :GitGutterNextHunk<CR>
 "---- signcolumn needs to be visible for the symbols
