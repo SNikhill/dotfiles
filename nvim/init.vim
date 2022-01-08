@@ -103,6 +103,7 @@ let g:ale_fixers['typescript'] = common_js_fixers
 let g:ale_fixers['typescriptreact'] = common_js_fixers
 let g:ale_fixers['html'] = ['prettier']
 let g:ale_fixers['css'] = ['prettier']
+let g:ale_fixers['scss'] = ['prettier']
 let g:ale_fixers['json'] = common_js_fixers
 let g:ale_fixers['jsonc'] = common_js_fixers
 
