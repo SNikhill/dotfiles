@@ -90,7 +90,7 @@ nnoremap ]h :GitGutterNextHunk<CR>
 "----- signcolumn needs to be visible for the symbols
 autocmd BufRead,BufNewFile * set signcolumn=yes
 
-"-- Asynchronous Lint Engine Config
+"-- Asynchronous Lint Engine Config aka ale
 "---- Fixers
 let common_js_fixers = ['prettier', 'eslint']
 
@@ -102,14 +102,17 @@ let g:ale_fixers['javascript.jsx'] = common_js_fixers
 let g:ale_fixers['typescript'] = common_js_fixers
 let g:ale_fixers['typescriptreact'] = common_js_fixers
 let g:ale_fixers['html'] = ['prettier']
+let g:ale_fixers['xml'] = ['prettier']
 let g:ale_fixers['css'] = ['prettier']
 let g:ale_fixers['scss'] = ['prettier']
 let g:ale_fixers['json'] = common_js_fixers
 let g:ale_fixers['jsonc'] = common_js_fixers
 
 let g:ale_fix_on_save = 1
+let g:ale_completion_autoimport = 1
 
 "---- Keybinds
+nnoremap <F2> :ALERename<CR>
 nnoremap <F12> :ALEGoToDefinition<CR>
 nnoremap <leader>gg :ALEFix<CR>
 
@@ -122,11 +125,11 @@ if has('nvim')
 	nnoremap <leader>fb <cmd>Telescope buffers<cr>
 	nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
-	"-- Deoplete Config
+	"-- deoplete Config
 	let g:deoplete#enable_at_startup = 0
-	"---- Disable Deoplete when in TelescopePrompt
+	"---- Disable deoplete when in TelescopePrompt
 	autocmd FileType TelescopePrompt call deoplete#custom#buffer_option('auto_complete', v:false)
-	"---- Enable Deoplete when entering the Insert Mode
+	"---- Enable deoplete when entering the Insert Mode
 	autocmd InsertEnter * call deoplete#enable()
 endif
 
@@ -147,8 +150,8 @@ autocmd FileType nerdtree set number relativenumber
 "---- Prevent NERDTree from highjacking `netrw` command
 let g:NERDTreeHijackNetrw = 0
 "---- Keybinds
+nnoremap <leader>nf :NERDTreeFind<CR>
 nnoremap <leader>n :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
 
 "---- Exit Vim if NERDTree is the only window remaining in the only tab.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
