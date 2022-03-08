@@ -1,0 +1,5 @@
+nvim/bundle/
+
+# fish Shell Configs
+fish/functions/
+fish/fish_plugins/
