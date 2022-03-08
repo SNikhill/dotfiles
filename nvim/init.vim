@@ -7,7 +7,7 @@
 "   -- Basic Plugins:
 "   ---- NERDTree
 "   ---- vim-airline
-"   ---- Material Theme
+"   ---- vim-colorschemes
 "   ---- deoplete.nvim
 "   -- Code Productivity:
 "   --- (Not exactly coding stuff but, the things that make programming more
@@ -141,7 +141,7 @@ set background=dark
 if has('termguicolors')
 	set termguicolors
 endif
-colorscheme github_dark
+colorscheme molokai
 
 "-- NERDTree Config
 "---- Show linenumbers in the NERDTree explorer
