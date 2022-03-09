@@ -15,7 +15,7 @@
 "	---- GitGutter
 "   ---- tcomment
 "   ---- plenary (required by telescope)
-"   ---- telescope
+"   ---- Telescope
 "   -- Code Assistance:
 "   --- (Like, linter support, code completion, etc.)
 "   ---- deoplete.nvim
@@ -118,6 +118,13 @@ nnoremap <leader>gg :ALEFix<CR>
 
 if has('nvim')
 	"-- Telescope Config
+	"---- Ignore Files
+	" Use fd package and it will by default ignore the
+	" files/folders mentioned in .gitignore
+	" https://github.com/sharkdp/fd
+	"----- Grepping Files
+	" Use ripgrep (rg) package
+	" https://github.com/BurntSushi/ripgrep#ripgrep-rg
 	"---- Keybinds
 	nnoremap <Space><Space> :Telescope find_files<CR>
 	nnoremap <leader>ff <cmd>Telescope find_files<cr>
