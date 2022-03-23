@@ -7,7 +7,7 @@
 "   -- Basic Plugins:
 "   ---- NERDTree
 "   ---- vim-airline
-"   ---- Material Theme
+"   ---- vim-colorschemes
 "   ---- deoplete.nvim
 "   -- Code Productivity:
 "   --- (Not exactly coding stuff but, the things that make programming more
@@ -15,7 +15,7 @@
 "	---- GitGutter
 "   ---- tcomment
 "   ---- plenary (required by telescope)
-"   ---- telescope
+"   ---- Telescope
 "   -- Code Assistance:
 "   --- (Like, linter support, code completion, etc.)
 "   ---- deoplete.nvim
@@ -118,6 +118,13 @@ nnoremap <leader>gg :ALEFix<CR>
 
 if has('nvim')
 	"-- Telescope Config
+	"---- Ignore Files
+	" Use fd package and it will by default ignore the
+	" files/folders mentioned in .gitignore
+	" https://github.com/sharkdp/fd
+	"----- Grepping Files
+	" Use ripgrep (rg) package
+	" https://github.com/BurntSushi/ripgrep#ripgrep-rg
 	"---- Keybinds
 	nnoremap <Space><Space> :Telescope find_files<CR>
 	nnoremap <leader>ff <cmd>Telescope find_files<cr>
@@ -141,7 +148,7 @@ set background=dark
 if has('termguicolors')
 	set termguicolors
 endif
-colorscheme github_dark
+colorscheme molokai
 
 "-- NERDTree Config
 "---- Show linenumbers in the NERDTree explorer

@@ -1,0 +1,2 @@
+! For scaling the display 1.25 times. (96 * 1.25 = 120)
+Xft.dpi: 120
