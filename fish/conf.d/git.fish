@@ -13,6 +13,7 @@ alias gR="git restore"
 alias gre="git restore"
 
 alias gp="git push"
+alias gpF="git push --force-with-lease"
 alias gf="git fetch"
 
 alias gr="git rebase"
