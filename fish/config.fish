@@ -3,9 +3,6 @@ if not functions -q fundle; eval (curl -sfL https://git.io/fundle-install); end
 set CAPACITOR_ANDROID_STUDIO_PATH /usr/bin/android-studio
 export CAPACITOR_ANDROID_STUDIO_PATH
 
-set JAVA_HOME $HOME/softwares/jdk1.8.0_311/
-export JAVA_HOME
-
 set ANDROID_SDK_ROOT $HOME/Android/Sdk
 export ANDROID_SDK_ROOT
 
@@ -28,4 +25,3 @@ if status is-login
 end
 ## FUNDLE PLUGINS
 fundle plugin 'danhper/fish-ssh-agent'
-
