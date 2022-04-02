@@ -9,9 +9,15 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
+#############
+# VARIABLES #
+#############
 set $mod Mod4
 
 set $CONFIG_DIRECTORY $HOME/.config
+
+set $PRIMARY_TERMINAL alacritty
+set $SECONDARY_TERMINAL xterm
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -48,10 +54,9 @@ exec_always --no-startup-id $CONFIG_DIRECTORY/polybar/launch.sh
 
 # Keybinds to switch monitor
 # Not the best way but, works for now
-# Requires xterm to be installed
-bindsym $mod+bracketleft exec xterm -e "xrandr --output eDP-1-1 --auto --primary"
-bindsym $mod+bracketright exec xterm -e "xrandr --output eDP-1-1 --off"
-bindsym $mod+minus --release exec xterm -e "xrandr --output eDP-1-1 --auto --right-of HDMI-0"
+bindsym $mod+bracketleft exec $SECONDARY_TERMINAL -e "xrandr --output eDP-1-1 --auto --primary"
+bindsym $mod+bracketright exec $SECONDARY_TERMINAL -e "xrandr --output eDP-1-1 --off"
+bindsym $mod+minus --release exec $SECONDARY_TERMINAL -e "xrandr --output eDP-1-1 --auto --right-of HDMI-0"
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -64,7 +69,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec $PRIMARY_TERMINAL
 
 # kill focused window
 bindsym $mod+q kill
