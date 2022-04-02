@@ -12,20 +12,38 @@
 #############
 # VARIABLES #
 #############
+
 set $mod Mod4
 
 set $CONFIG_DIRECTORY $HOME/.config
 
 set $PRIMARY_TERMINAL alacritty
 set $SECONDARY_TERMINAL xterm
+set $BROWSER /usr/bin/firefox-developer-edition
+set $FILE_MANAGER /usr/bin/thunar
+set $SCREENSHOT_TOOL /usr/bin/flameshot gui
+set $APPLICATION_LAUNCHER /usr/bin/dmenu_run
 
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
-font pango:monospace 8
+###########################
+# APPLICATION KEYBINDINGS #
+###########################
 
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
+bindsym $mod+q kill
+bindsym $mod+F1 exec $BROWSER
+bindsym $mod+F3 exec $FILE_MANAGER
+bindsym $mod+Return exec $PRIMARY_TERMINAL
+bindsym Print exec --no-startup-id $SCREENSHOT_TOOL
+#
+# start dmenu (a program launcher)
+bindsym $mod+d exec --no-startup-id $APPLICATION_LAUNCHER
+
+# Keybinds to switch monitor
+# Not the best way but, works for now
+bindsym $mod+bracketleft exec $SECONDARY_TERMINAL -e "xrandr --output eDP-1-1 --auto --primary"
+bindsym $mod+bracketright exec $SECONDARY_TERMINAL -e "xrandr --output eDP-1-1 --off"
+bindsym $mod+minus --release exec $SECONDARY_TERMINAL -e "xrandr --output eDP-1-1 --auto --right-of HDMI-0"
+
+
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
@@ -52,11 +70,6 @@ exec_always --no-startup-id $CONFIG_DIRECTORY/polybar/launch.sh
 
 # Keyboard shortcuts to get stuff done
 
-# Keybinds to switch monitor
-# Not the best way but, works for now
-bindsym $mod+bracketleft exec $SECONDARY_TERMINAL -e "xrandr --output eDP-1-1 --auto --primary"
-bindsym $mod+bracketright exec $SECONDARY_TERMINAL -e "xrandr --output eDP-1-1 --off"
-bindsym $mod+minus --release exec $SECONDARY_TERMINAL -e "xrandr --output eDP-1-1 --auto --right-of HDMI-0"
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -68,14 +81,6 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal
-bindsym $mod+Return exec $PRIMARY_TERMINAL
-
-# kill focused window
-bindsym $mod+q kill
-
-# start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -211,3 +216,8 @@ bindsym $mod+r mode "resize"
 for_window [class=".*"] border pixel 0
 gaps inner 10
 gaps outer 0
+
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+font pango:monospace 8
