@@ -11,6 +11,8 @@
 
 set $mod Mod4
 
+set $CONFIG_DIRECTORY $HOME/.config
+
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:monospace 8
@@ -40,9 +42,13 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 # Start Polybar
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id $CONFIG_DIRECTORY/polybar/launch.sh
 
 # Keyboard shortcuts to get stuff done
+
+# Keybinds to switch monitor
+# Not the best way but, works for now
+# Requires xterm to be installed
 bindsym $mod+bracketleft exec xterm -e "xrandr --output eDP-1-1 --auto --primary"
 bindsym $mod+bracketright exec xterm -e "xrandr --output eDP-1-1 --off"
 bindsym $mod+minus --release exec xterm -e "xrandr --output eDP-1-1 --auto --right-of HDMI-0"
@@ -192,6 +198,11 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-# USING POLYBAR for bar
+###########
+# STYLING #
+###########
+# - polybar is being used inplace of i3_status
+# - I never installed i3_status
+for_window [class=".*"] border pixel 0
+gaps inner 10
+gaps outer 0
