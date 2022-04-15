@@ -24,6 +24,9 @@ set $FILE_MANAGER /usr/bin/thunar
 set $SCREENSHOT_TOOL /usr/bin/flameshot gui
 set $APPLICATION_LAUNCHER /usr/bin/dmenu_run
 
+set $externalMonitor1 HDMI-0
+set $internalMonitor eDP-1-1
+
 ###########################
 # APPLICATION KEYBINDINGS #
 ###########################
@@ -148,6 +151,15 @@ set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
+
+# define workspace position
+workspace $ws1 output $externalMonitor1
+workspace $ws2 output $externalMonitor1
+workspace $ws3 output $externalMonitor1
+workspace $ws4 output $externalMonitor1
+workspace $ws5 output $internalMonitor
+workspace $ws6 output $internalMonitor
+workspace $ws9 output $internalMonitor
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
