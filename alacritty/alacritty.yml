@@ -74,7 +74,7 @@ window:
   # Set this to `None` to use the default theme variant.
   gtk_theme_variant: dark
 
-  opacity: 0.8
+  opacity: 0.95
 
 scrolling:
   # Maximum number of lines in the scrollback buffer.
