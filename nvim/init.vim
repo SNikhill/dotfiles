@@ -100,6 +100,7 @@ let g:ale_fixers['*'] = ['remove_trailing_lines', 'trim_whitespace']
 let g:ale_fixers['javascript'] = common_js_fixers
 let g:ale_fixers['javascript.jsx'] = common_js_fixers
 let g:ale_fixers['typescript'] = common_js_fixers
+let g:ale_fixers['javascriptreact'] = common_js_fixers
 let g:ale_fixers['typescriptreact'] = common_js_fixers
 let g:ale_fixers['html'] = ['prettier']
 let g:ale_fixers['xml'] = ['prettier']
