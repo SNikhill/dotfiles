@@ -19,7 +19,8 @@ set $CONFIG_DIRECTORY $HOME/.config
 
 set $PRIMARY_TERMINAL alacritty
 set $SECONDARY_TERMINAL xterm
-set $BROWSER /usr/bin/firefox-developer-edition
+set $PRIMARY_BROWSER /usr/bin/firefox-developer-edition
+set $SECONDARY_BROWSER /usr/bin/brave
 set $FILE_MANAGER /usr/bin/thunar
 set $SCREENSHOT_TOOL /usr/bin/flameshot gui
 set $APPLICATION_LAUNCHER /usr/bin/dmenu_run
@@ -32,7 +33,8 @@ set $internalMonitor eDP-1-1
 ###########################
 
 bindsym $mod+q kill
-bindsym $mod+F1 exec $BROWSER
+bindsym $mod+F1 exec $PRIMARY_BROWSER
+bindsym $mod+shift+F1 exec $SECONDARY_BROWSER
 bindsym $mod+F3 exec $FILE_MANAGER
 bindsym $mod+Return exec $PRIMARY_TERMINAL
 bindsym Print exec --no-startup-id $SCREENSHOT_TOOL
