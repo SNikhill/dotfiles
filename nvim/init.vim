@@ -116,6 +116,8 @@ let g:ale_completion_autoimport = 1
 nnoremap <F2> :ALERename<CR>
 nnoremap <F12> :ALEGoToDefinition<CR>
 nnoremap <leader>gg :ALEFix<CR>
+nnoremap [a :ALEPrevious<CR>
+nnoremap ]a :ALENext<CR>
 
 if has('nvim')
 	"-- Telescope Config
