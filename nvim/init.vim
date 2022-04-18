@@ -56,7 +56,7 @@ nnoremap <Left> <nop>
 "-- Terminal
 "---- Keybinds
 "----- open terminal at the bottom
-nnoremap <C-t> :bel split<CR> :terminal <CR>
+nnoremap <C-t> :bel split \| terminal<CR>
 
 "-- Clipboard
 "--- Refer to :help registers
