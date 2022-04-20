@@ -14,7 +14,7 @@ alias gre="git restore"
 
 alias gp="git push"
 alias gpF="git push --force-with-lease"
-alias gf="git fetch"
+alias gf="git fetch --prune"
 
 alias gr="git rebase"
 alias grb="git rebase"
