@@ -115,6 +115,7 @@ let g:ale_completion_autoimport = 1
 "---- Keybinds
 nnoremap <F2> :ALERename<CR>
 nnoremap <F12> :ALEGoToDefinition<CR>
+nnoremap <leader>gr :ALEFindReferences<CR>
 nnoremap <leader>gg :ALEFix<CR>
 nnoremap [a :ALEPrevious<CR>
 nnoremap ]a :ALENext<CR>
